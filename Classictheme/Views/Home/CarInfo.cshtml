@@ -1,0 +1,65 @@
+﻿@using Classictheme.Models
+@model IEnumerable <CarDetails>
+
+@{
+    ViewBag.Title = "CarInfo";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script type="text/javascript">
+    //var obj = document.getElementById('cars_info');
+    //console.dir(document);
+    let obj = document.getElementsByClassName('form-control');
+    var paragraphs = document.querySelectorAll('p');
+    for (var p in paragraphs) { p.style.color = 'red';}
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            alert("clicked");
+        });
+    });
+</script>
+<h2>CarInfo</h2>
+
+<style type="text/css">
+    table {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+        table th, table tr {
+            background-color: #F7F7F7;
+            color: #333;
+            font-weight: bold;
+        }
+
+        table th, table td, table tr {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+</style>
+
+
+
+<div class="form-control">
+    <p>paragraph one</p>
+    <p>paragraph two</p>
+    <div>div one</div>
+    <p>paragraph three</p>
+    <input type="button" id="btn" value="Submit" />
+    <div>div two</div>
+    <table cellpadding="0" cellspacing="0" id="cars_info">
+        <tr>
+            StockNum
+        </tr>
+        <tr>Make</tr>
+        <tr>Model</tr>
+        @foreach (CarDetails obj_cars in Model)
+        {
+            <tr>
+                <td>@obj_cars.StockNumber</td>
+                <td>@obj_cars.Make</td>
+                <td>@obj_cars.Model</td>
+            </tr>
+        }
+    </table>
+</div>
